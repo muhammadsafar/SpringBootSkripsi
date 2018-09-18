@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.skripsi.SpringBootSkripsi.controller;
+package com.skripsi.SpringBootSkripsi.controllerService;
 
-import com.skripsi.SpringBootSkripsi.model.Keminatan;
-import com.skripsi.SpringBootSkripsi.repository.KeminatanRepository;
+import com.skripsi.SpringBootSkripsi.model.Mahasiswa;
+import com.skripsi.SpringBootSkripsi.repository.MahasiswaRepository;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
@@ -24,32 +24,33 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author muhammad
  */
+
 @RestController
-@RequestMapping("/keminatan")
-public class KeminatanController {
+@RequestMapping("/mahasiswa")
+public class MahasiswaController {
     
     @Autowired
-    KeminatanRepository repository;
+    MahasiswaRepository mahasiswaRepository;
     
     @GetMapping("/list")
-    public List<Keminatan> getAllKeminatan(){
+    public List<Mahasiswa> getAllmsh(){
     
-        return repository.findAll();
+        return mahasiswaRepository.findAll();
     }
     
     @PostMapping("/add")
-    public Keminatan saveKeminatan(@Valid @RequestBody Keminatan k){
-        return repository.save(k);
+    public Mahasiswa savemhs(@Valid @RequestBody Mahasiswa nim){
+    
+        return mahasiswaRepository.save(nim);
     }
     
-    @GetMapping("/get/{idMinat}")
-    public Optional<Keminatan> getByMinat(@PathVariable(value = "idMinat") Integer idMinat){
-        return repository.findById(idMinat);
+    @GetMapping("/get/{nim}")
+    public Optional<Mahasiswa> getBymhs(@PathVariable(value = "nim") Integer nim){
+        return mahasiswaRepository.findById(nim);
     }
     
-    @DeleteMapping("{/delete/{idMinat}}")
-    public ResponseEntity<?> deleteKem(@PathVariable(value = "idMinat") Integer idMinat) {
-        repository.deleteById(idMinat);
+    @DeleteMapping("{/delete/{nim}}")
+    public ResponseEntity<?> deletemhs(@PathVariable(value = "nim") Integer nim) {
 
         return ResponseEntity.ok().build();
     }

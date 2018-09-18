@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.skripsi.SpringBootSkripsi.controller;
+package com.skripsi.SpringBootSkripsi.controllerService;
 
 import com.skripsi.SpringBootSkripsi.model.Dosen;
 import com.skripsi.SpringBootSkripsi.repository.DosenRepository;

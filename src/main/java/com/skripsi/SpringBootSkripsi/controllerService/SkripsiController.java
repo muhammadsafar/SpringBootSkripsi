@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.skripsi.SpringBootSkripsi.controller;
+package com.skripsi.SpringBootSkripsi.controllerService;
 
-import com.skripsi.SpringBootSkripsi.model.Mahasiswa;
-import com.skripsi.SpringBootSkripsi.repository.MahasiswaRepository;
+import com.skripsi.SpringBootSkripsi.model.Skripsi;
+import com.skripsi.SpringBootSkripsi.repository.SkripsiRepository;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
@@ -26,31 +26,31 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/mahasiswa")
-public class MahasiswaController {
+@RequestMapping("/skripsi")
+public class SkripsiController {
     
     @Autowired
-    MahasiswaRepository mahasiswaRepository;
+    SkripsiRepository repository;
     
     @GetMapping("/list")
-    public List<Mahasiswa> getAllmsh(){
+    public List<Skripsi> getAllSkripsi(){
     
-        return mahasiswaRepository.findAll();
+        return repository.findAll();
     }
     
     @PostMapping("/add")
-    public Mahasiswa savemhs(@Valid @RequestBody Mahasiswa nim){
-    
-        return mahasiswaRepository.save(nim);
+    public Skripsi saveKeminatan(@Valid @RequestBody Skripsi skripsi){
+        return repository.save(skripsi);
     }
     
-    @GetMapping("/get/{nim}")
-    public Optional<Mahasiswa> getBymhs(@PathVariable(value = "nim") Integer nim){
-        return mahasiswaRepository.findById(nim);
+    @GetMapping("/get/{id}")
+    public Optional<Skripsi> getByMinat(@PathVariable(value = "id") Integer id){
+        return repository.findById(id);
     }
     
-    @DeleteMapping("{/delete/{nim}}")
-    public ResponseEntity<?> deletemhs(@PathVariable(value = "nim") Integer nim) {
+    @DeleteMapping("{/delete/{id}}")
+    public ResponseEntity<?> deleteKem(@PathVariable(value = "id") Integer id) {
+        repository.deleteById(id);
 
         return ResponseEntity.ok().build();
     }

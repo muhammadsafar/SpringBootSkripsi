@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan({ "com.skripsi.SpringBootSkripsi.controller, com.skripsi.SpringBootSkripsi.repository, "
-        + "com.skripsi.SpringBootSkripsi.model", "controller", "repository", "model" })
+//@EnableJpaAuditing
+//@Configuration
+//@EnableAutoConfiguration
+//@ComponentScan({ "com.skripsi.SpringBootSkripsi.controller, com.skripsi.SpringBootSkripsi.repository, "
+//        + "com.skripsi.SpringBootSkripsi.model", "controller", "repository", "model" })
 public class SpringBootSkripsiApplication {
 
 	public static void main(String[] args) {

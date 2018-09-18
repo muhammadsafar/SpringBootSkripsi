@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.skripsi.SpringBootSkripsi.controller;
+package com.skripsi.SpringBootSkripsi.controllerService;
 
-import com.skripsi.SpringBootSkripsi.model.Skripsi;
-import com.skripsi.SpringBootSkripsi.repository.SkripsiRepository;
+import com.skripsi.SpringBootSkripsi.model.Keminatan;
+import com.skripsi.SpringBootSkripsi.repository.KeminatanRepository;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
@@ -24,33 +24,32 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author muhammad
  */
-
 @RestController
-@RequestMapping("/skripsi")
-public class SkripsiController {
+@RequestMapping("/keminatan")
+public class KeminatanController {
     
     @Autowired
-    SkripsiRepository repository;
+    KeminatanRepository repository;
     
     @GetMapping("/list")
-    public List<Skripsi> getAllSkripsi(){
+    public List<Keminatan> getAllKeminatan(){
     
         return repository.findAll();
     }
     
     @PostMapping("/add")
-    public Skripsi saveKeminatan(@Valid @RequestBody Skripsi skripsi){
-        return repository.save(skripsi);
+    public Keminatan saveKeminatan(@Valid @RequestBody Keminatan k){
+        return repository.save(k);
     }
     
-    @GetMapping("/get/{id}")
-    public Optional<Skripsi> getByMinat(@PathVariable(value = "id") Integer id){
-        return repository.findById(id);
+    @GetMapping("/get/{idMinat}")
+    public Optional<Keminatan> getByMinat(@PathVariable(value = "idMinat") Integer idMinat){
+        return repository.findById(idMinat);
     }
     
-    @DeleteMapping("{/delete/{id}}")
-    public ResponseEntity<?> deleteKem(@PathVariable(value = "id") Integer id) {
-        repository.deleteById(id);
+    @DeleteMapping("{/delete/{idMinat}}")
+    public ResponseEntity<?> deleteKem(@PathVariable(value = "idMinat") Integer idMinat) {
+        repository.deleteById(idMinat);
 
         return ResponseEntity.ok().build();
     }
