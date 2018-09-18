@@ -37,7 +37,7 @@ public class Dosen {
 
     @Id
     @Column(name = "NIK")
-    private BigDecimal nik;
+    private Integer nik;
     @Column(name = "NAMA")
     private String nama;
     @Column(name = "PASSWORD")
@@ -53,17 +53,14 @@ public class Dosen {
     public Dosen() {
     }
 
-    public Dosen(BigDecimal nik) {
-        this.nik = nik;
-    }
-
-    public BigDecimal getNik() {
+    public Integer getNik() {
         return nik;
     }
 
-    public void setNik(BigDecimal nik) {
+    public void setNik(Integer nik) {
         this.nik = nik;
     }
+
 
     public String getNama() {
         return nama;

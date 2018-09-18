@@ -29,7 +29,7 @@ public class Mahasiswa {
 
     @Id
     @Column(name = "NIM")
-    private BigDecimal nim;
+    private Integer nim;
     @Column(name = "NAMA")
     private String nama;
     @Column(name = "JURUSAN")
@@ -49,18 +49,15 @@ public class Mahasiswa {
     public Mahasiswa() {
     }
 
-    public Mahasiswa(BigDecimal nim) {
-        this.nim = nim;
-    }
-
-    public BigDecimal getNim() {
+    public Integer getNim() {
         return nim;
     }
 
-    public void setNim(BigDecimal nim) {
+    public void setNim(Integer nim) {
         this.nim = nim;
     }
 
+   
     public String getNama() {
         return nama;
     }
