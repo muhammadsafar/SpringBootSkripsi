@@ -5,7 +5,7 @@
  */
 package com.skripsi.SpringBootSkripsi.repository;
 
-import com.skripsi.SpringBootSkripsi.model.Skripsi;
+import com.skripsi.SpringBootSkripsi.model.Keminatan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author muhammad
  */
 @Repository
-public interface SkripsiRepository extends JpaRepository<Skripsi, Integer>{
+public interface KeminatanRepository extends JpaRepository<Keminatan, Integer>{
     
 }
