@@ -48,6 +48,14 @@ public class Admin {
     public Admin() {
     }
 
+    public Admin(Integer nik, String nama, String password, String image, Role idRole) {
+        this.nik = nik;
+        this.nama = nama;
+        this.password = password;
+        this.image = image;
+        this.idRole = idRole;
+    }
+
     public Integer getNik() {
         return nik;
     }

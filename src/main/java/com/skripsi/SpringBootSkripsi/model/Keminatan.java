@@ -20,7 +20,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  */
 @Entity
 @Table(name = "KEMINATAN")
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 public class Keminatan {
 
     @Id
@@ -34,6 +34,11 @@ public class Keminatan {
     public Keminatan() {
     }
 
+    public Keminatan(Integer idMinat, String keminatan) {
+        this.idMinat = idMinat;
+        this.keminatan = keminatan;
+    }
+    
     public Integer getIdMinat() {
         return idMinat;
     }

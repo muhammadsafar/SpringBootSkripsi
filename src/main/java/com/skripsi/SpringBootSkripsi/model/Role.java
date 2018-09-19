@@ -35,7 +35,7 @@ public class Role{
 
     @Id
     @Column(name = "ID_ROLE")
-    private BigDecimal idRole;
+    private Integer idRole;
     @Column(name = "ROLE")
     private String role;
     @OneToMany(mappedBy = "idRole", fetch = FetchType.LAZY)
@@ -48,15 +48,20 @@ public class Role{
     public Role() {
     }
 
-    public Role(BigDecimal idRole) {
+    public Role(Integer idRole, String role) {
+        this.idRole = idRole;
+        this.role = role;
+    }
+
+    public Role(Integer idRole) {
         this.idRole = idRole;
     }
 
-    public BigDecimal getIdRole() {
+    public Integer getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(BigDecimal idRole) {
+    public void setIdRole(Integer idRole) {
         this.idRole = idRole;
     }
 

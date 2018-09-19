@@ -1,0 +1,19 @@
+<!doctype html>
+<html xmlns="http://www.thymeleaf.org">
+<head lang="en">    
+
+<title>Dashboard Template for Bootstrap</title>
+
+</head>
+
+<body>
+        <h1>FORM ADD KEMINATAN</h1>
+    <form th:object="${keminatan}" th:action="@{/addMinat}" method="post">
+        <label>ID:</label>
+        <input type="text" th:field="*{idMinat}"/>
+        <label>Keminatan:</label>
+        <input type="text" th:field="*{keminatan}"/>
+        <button type-"submit">Simpan</button>
+    </form>
+    </body>
+</html>

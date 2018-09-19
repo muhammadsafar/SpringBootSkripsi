@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns="http://www.thymeleaf.org">
+<head lang="en">    
+
+<title>Dashboard Template for Bootstrap</title>
+
+</head>
+
+<body>
+    <h1>FORM ADD ADMIN</h1>
+    <form th:object="${admin}" th:action="@{/addAdmin}" method="post">
+        <label>NIK:</label>
+        <input type="text" th:field="*{nik}"/>
+        <label>Nama:</label>
+        <input type="text" th:field="*{nama}"/>
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" />
+        <!--<input type="text" name="" value="" readonly="readonly" />-->
+<!--        <label>Role</label>
+        <input type="text" th:field="*{idRole}"/>-->
+        <label>Image</label>
+        <input type="text" th:field="*{image}"/>
+        <button type-"submit">Simpan</button>
+    </form>
+</body>
+</html>

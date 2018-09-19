@@ -9,6 +9,8 @@ package com.skripsi.SpringBootSkripsi.service;
 import com.skripsi.SpringBootSkripsi.model.Admin;
 import com.skripsi.SpringBootSkripsi.repository.AdminRepository;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AdminService implements AdminServiceInterface{
+    
+    private EntityManagerFactory emf;
+
+    @Autowired
+    public void setEmf(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+    
     @Autowired
     private AdminRepository adminRepository;
 
@@ -27,8 +37,14 @@ public class AdminService implements AdminServiceInterface{
     }
 
     @Override
-    public Admin addAdmin(Admin admin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Admin saveOrUpdateAdmin(Admin admin) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Admin saved = em.merge(admin);
+        em.getTransaction().commit();
+        return saved;
     }
+
+
     
 }

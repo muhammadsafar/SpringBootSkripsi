@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package com.skripsi.SpringBootSkripsi.service;
-import com.skripsi.SpringBootSkripsi.model.Admin;
 
+import com.skripsi.SpringBootSkripsi.model.Keminatan;
 import java.util.List;
 
 /**
  *
- * @author Dayinta Warih Wulandari
+ * @author budiarti
  */
-public interface AdminServiceInterface {
-    	public List<Admin> adminList();
-        public Admin saveOrUpdateAdmin(Admin admin);
+public interface KeminatanServiceInterface {
+    public List<Keminatan> ListMinat();
+    public Keminatan saveOrUpdateKeminatan(Keminatan minat);
 }
