@@ -1,0 +1,234 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+    overflow-x: hidden;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(240, 243, 241);
+    color: #000;
+}
+
+.footer p{
+    text-align: center;
+    margin-top: 15px;
+}
+.footer .copyright {
+    color: #777777;
+    padding: 10px 15px;
+    margin: 10px 3px;
+    line-height: 20px;
+    font-size: 14px;
+
+}
+
+.footer .copyright1 {
+    color: #777777;
+    padding: 10px 15px;
+    margin: 10px 3px;
+    line-height: 20px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.insetan{
+    width: 100px;
+    margin-left: 45px;
+    /*    margin-top: 20px;*/
+    height: 86px;
+    /*border-radius: 50%;*/
+    box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,0.6), 
+        0 1px 1px rgba(0,0,0,0.1);
+    background-color: transparent !important;
+    z-index: 999;
+}
+.insetan img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    display: block;
+    position: relative;
+    z-index: 998;
+}
+
+.inset {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,0.6), 
+        0 1px 1px rgba(0,0,0,0.1);
+    background-color: transparent !important;
+    z-index: 999;
+}
+
+.inset img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    display: block;
+    position: relative;
+    z-index: 998;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #6699ff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 350px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #fff;
+    /*    width: 100%;
+        bottom: 10px;*/
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+    /*margin-top: 20px;*/
+    width: 100%;
+    bottom: 10px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+    height: 89px;
+    font-size: 18px;
+    line-height: 60px;
+    background-color: rgb(248, 249, 250);
+}
+
+.sidebar-nav>.sidebar-brand a {
+    color: #007fff;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+    color:#007fff ;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+    #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+    .sidebar .nav > li.active-pro{
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+    }
+    .sidebar .nav > li.active-pro a{
+        background: rgba(255, 255, 255, 0.14);
+        opacity: 1;
+        color: #FFFFFF;
+    }
+
+    .table-upgrade td:nth-child(2),
+    .table-upgrade td:nth-child(3){
+        text-align: center;
+    }
+
+    @media all and (max-width: 991px)  {
+        .sidebar .nav > li.active-pro{
+            position: initial;
+        }
+    }
+}

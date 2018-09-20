@@ -81,6 +81,17 @@ public class AdminController {
 
         return "index";
     }
+    @RequestMapping("/login")
+    public String dataLogin(Model model) {
+
+        return "login";
+    }
+    
+    @RequestMapping("/registrasi")
+    public String dataRegistrasi(Model model) {
+
+        return "regis";
+    }
 
     @RequestMapping("/listAdmin")
     public String dataRegion(Model model) {
