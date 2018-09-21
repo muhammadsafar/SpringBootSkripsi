@@ -18,12 +18,16 @@ import com.skripsi.SpringBootSkripsi.service.AdminService;
 import com.skripsi.SpringBootSkripsi.service.DosenService;
 import com.skripsi.SpringBootSkripsi.service.KeminatanService;
 import com.skripsi.SpringBootSkripsi.service.MahasiswaService;
+import com.skripsi.SpringBootSkripsi.service.NotificationService;
 import com.skripsi.SpringBootSkripsi.service.SkripsiService;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +47,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //@RestController
 //@RequestMapping("/admin")
 public class AdminController {
+    
+    //email sender logger
+    private Logger logger = LoggerFactory.getLogger(RegistrationController.class);
+    
+    //serice email sender
+    @Autowired
+    private NotificationService notificationService;
 
+    //end of set email sender
+    
     @Autowired
     AdminRepository adminRepository;
 
@@ -107,9 +120,17 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addAdmin", method = RequestMethod.POST)
-    public String simpanAdmin(Model model, Integer nik, String nama, String pass, String image) {
-        Admin admin = new Admin(nik, nama, pass, image, new Role(1, ""));
+    public String simpanAdmin(Model model, Integer nik, String nama, String pass, String image, String email) {
+        Admin admin = new Admin(nik, nama, pass, image, email, new Role(1, ""));
         model.addAttribute("admin", adminService.saveOrUpdateAdmin(admin));
+        
+        try {
+            notificationService.sendNotif(admin);
+        } catch (MailException e) {
+            //sending error
+            logger.info("Error to send Email : " + e.getMessage());
+        }
+        
         return "redirect:/listAdmin";
     }
 

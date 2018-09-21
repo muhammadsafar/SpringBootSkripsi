@@ -41,6 +41,8 @@ public class Admin {
     private String password;
     @Column(name = "IMAGE")
     private String image;
+    @Column(name = "email")
+    private String email;
     @JoinColumn(name = "ID_ROLE", referencedColumnName = "ID_ROLE")
     @ManyToOne(fetch = FetchType.LAZY)
     private Role idRole;
@@ -48,11 +50,12 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(Integer nik, String nama, String password, String image, Role idRole) {
+    public Admin(Integer nik, String nama, String password, String image, String email, Role idRole) {
         this.nik = nik;
         this.nama = nama;
         this.password = password;
         this.image = image;
+        this.email = email;
         this.idRole = idRole;
     }
 
@@ -96,5 +99,14 @@ public class Admin {
     public void setIdRole(Role idRole) {
         this.idRole = idRole;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
 
 }
