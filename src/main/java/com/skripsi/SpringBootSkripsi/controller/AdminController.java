@@ -92,6 +92,12 @@ public class AdminController {
 
         return "regis";
     }
+    
+    @RequestMapping("/profil")
+    public String dataProfile(Model model) {
+
+        return "profile";
+    }
 
     @RequestMapping("/listAdmin")
     public String dataRegion(Model model) {
@@ -153,6 +159,28 @@ public class AdminController {
     public String dataSkripsi(Model model) {
         model.addAttribute("listSkripsi", skripsirepository.findAll());
         return "skripsi";
+    }
+    
+    @RequestMapping("/dataPengajuan")
+    public String dataPengajuan (Model m){
+        m.addAttribute("dataPengajuan", skripsirepository.findAll());
+        return "pengajuan";
+    }
+    @RequestMapping("/listPengajuan")
+    public String listPengajuan (Model m){
+        m.addAttribute("listPengajuan", skripsirepository.findAll());
+        return "/mahasiswa/listPengajuan";
+    }
+    
+    @RequestMapping("/halMahasiswa")
+    public String datalistMahasiswa (Model m){
+        m.addAttribute("halMahasiswa", skripsirepository.findAll());
+        return "/mahasiswa/halMahasiswa";
+    }
+    @RequestMapping("/Mahasiswa")
+    public String listMahasiswa (Model m){
+        m.addAttribute("listMahasiswa", skripsirepository.findAll());
+        return "/mahasiswa/listMahasiswa";
     }
 
 }
