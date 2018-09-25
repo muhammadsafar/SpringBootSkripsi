@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface SkripsiServiceInterface {
     List<Skripsi> SkripsiAll();
-    
+    public Skripsi saveOrUpdateAdmin(Skripsi skripsi);
 }

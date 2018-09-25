@@ -65,6 +65,17 @@ public class Skripsi{
         this.id = id;
     }
 
+    public Skripsi(Integer id, String topik, String judul, String deskripsi, String status, String pesan, Dosen nik, Keminatan idMinat, Mahasiswa nim) {
+        this.id = id;
+        this.topik = topik;
+        this.judul = judul;
+        this.deskripsi = deskripsi;
+        this.status = status;
+        this.pesan = pesan;
+        this.nik = nik;
+        this.idMinat = idMinat;
+        this.nim = nim;
+    }
 
     public String getTopik() {
         return topik;

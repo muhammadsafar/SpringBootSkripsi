@@ -8,7 +8,9 @@ package com.skripsi.SpringBootSkripsi.controller;
 //import com.skripsi.SpringBootSkripsi.controllerService.*;
 import com.skripsi.SpringBootSkripsi.model.Admin;
 import com.skripsi.SpringBootSkripsi.model.Keminatan;
+import com.skripsi.SpringBootSkripsi.model.Mahasiswa;
 import com.skripsi.SpringBootSkripsi.model.Role;
+import com.skripsi.SpringBootSkripsi.model.Skripsi;
 import com.skripsi.SpringBootSkripsi.repository.AdminRepository;
 import com.skripsi.SpringBootSkripsi.repository.DosenRepository;
 import com.skripsi.SpringBootSkripsi.repository.KeminatanRepository;
@@ -146,6 +148,27 @@ public class AdminController {
         model.addAttribute("listMhs", mahasiswaService.mahasiswaList());
         return "mahasiswa";
     }
+    
+    @RequestMapping(value = "/addMahasiswa", method = RequestMethod.GET)
+    public String formAddOrUpdate(Model model) {
+        model.addAttribute("mahasiswa", new Mahasiswa());
+        return "mahasiswa";
+    }
+
+//    @RequestMapping(value = "/addMahasiswa", method = RequestMethod.POST)
+//    public String simpanAdmin(Model model, Integer nim, String nama, String jurusan, String angkatan, String password, String image, String email) {
+//        Mahasiswa mahasiswa = new Mahasiswa(nim, nama, jurusan, angkatan, password, image, email, new Role(3, ""));
+//        model.addAttribute("mahasiswa", mahasiswaService.addMahasiswa(mahasiswa));
+//        
+////        try {
+////            notificationService.sendNotif(admin);
+////        } catch (MailException e) {
+////            //sending error
+////            logger.info("Error to send Email : " + e.getMessage());
+////        }
+////        
+//        return "";
+//    }
 
     //THIS IS LECTURER AREA
     @RequestMapping("/listDosen")
@@ -189,7 +212,9 @@ public class AdminController {
     }
     @RequestMapping("/listPengajuan")
     public String listPengajuan (Model m){
-        m.addAttribute("listPengajuan", skripsirepository.findAll());
+        m.addAttribute("listPengajuan", new Skripsi());
+        m.addAttribute("listDosen", dosenService.dosenList());
+        m.addAttribute("listMinat", keminatanservice.ListMinat());
         return "/mahasiswa/listPengajuan";
     }
     
