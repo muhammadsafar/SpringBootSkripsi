@@ -40,6 +40,8 @@ public class Mahasiswa {
     private String password;
     @Column(name = "IMAGE")
     private String image;
+    @Column(name = "EMAIL")
+    private String email;
     @OneToMany(mappedBy = "nim", fetch = FetchType.LAZY)
     private List<Skripsi> skripsiList;
     @JoinColumn(name = "ID_ROLE", referencedColumnName = "ID_ROLE")
@@ -47,6 +49,17 @@ public class Mahasiswa {
     private Role idRole;
 
     public Mahasiswa() {
+    }
+
+    public Mahasiswa(Integer nim, String nama, String jurusan, String angkatan, String password, String image, String email, Role idRole) {
+        this.nim = nim;
+        this.nama = nama;
+        this.jurusan = jurusan;
+        this.angkatan = angkatan;
+        this.password = password;
+        this.image = image;
+        this.email = email;
+        this.idRole = idRole;
     }
 
     public Integer getNim() {
@@ -57,7 +70,6 @@ public class Mahasiswa {
         this.nim = nim;
     }
 
-   
     public String getNama() {
         return nama;
     }
@@ -98,8 +110,12 @@ public class Mahasiswa {
         this.image = image;
     }
 
-    public void setSkripsiList(List<Skripsi> skripsiList) {
-        this.skripsiList = skripsiList;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Role getIdRole() {
@@ -109,5 +125,7 @@ public class Mahasiswa {
     public void setIdRole(Role idRole) {
         this.idRole = idRole;
     }
+
+    
 
 }

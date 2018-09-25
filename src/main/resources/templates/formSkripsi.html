@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Dashboard Template for Bootstrap</title>
+
+    </head>
+
+    <body>
+        <h1>FORM PENGAJUAN SKRIPSI</h1>
+        <form th:object="${skripsi}" th:action="@{/addSkripsi}" method="post">
+            <label>ID:</label>
+            <input type="text"/>
+            <label>NIM:</label>
+            <!--<input type="text" name="nim" value="" />-->
+             <input type="text" th:field="*{nim}"/>
+            <label>Topik:</label>
+            <!--<input type="text" name="topik" value="" />-->
+             <input type="text" th:field="*{topik}"/>
+            <label>Judul:</label>
+            <!--<input type="text" name="judul" value="" />-->
+             <input type="text" th:field="*{judul}"/>
+            <label>Dosen:</label>
+            <select >
+                <option value=""> -- </option>
+                <option th:each="dosen : ${listDosen}"
+                        th:value="${dosen.nik}"
+                        th:text="${dosen.nama}"
+                        ></option>
+            </select>
+            <label>Minat:</label>
+            <select>
+                <option th:each="keminatan : ${listMinat}"
+                    th:value="${keminatan.idMinat}"
+                    th:text="${keminatan.keminatan}"
+                    ></option>
+            </select>
+            <label>Deskripsi</label>
+            <!--<input type="text" name="desk" value="" />--> 
+            <input type="text" th:field="*{deskripsi}"/>
+            <button type="submit">Simpan</button>
+        </form>
+    </body>
+</html>

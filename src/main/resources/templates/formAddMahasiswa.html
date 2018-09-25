@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns="http://www.thymeleaf.org">
+<head lang="en">    
+
+<title>Dashboard Template for Bootstrap</title>
+
+</head>
+
+<body>
+    <h1>FORM ADD MAHASISWA</h1>
+    <form th:object="${mahasiswa}" th:action="@{/addMahasiswa}" method="post">
+        <label>NIM:</label>
+        <input type="text" th:field="*{nim}"/>
+        <label>Nama:</label>
+        <input type="text" th:field="*{nama}"/>
+        <label>Jurusan:</label>
+        <input type="text" th:field="*{jurusan}"/>
+        <label>Angkatan:</label>
+        <input type="text" th:field="*{angkatan}"/>
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" />
+        <input type="text" name="" value="" readonly="readonly" />
+        <label>Role</label>
+        <input type="text" th:field="*{idRole}"/>
+        <label>Image</label>
+        <input type="text" th:field="*{image}"/>
+        <label>Email</label>
+        <input type="text" th:field="*{email}"/>
+        <button type-"submit">Simpan</button>
+    </form>
+</body>
+</html>
