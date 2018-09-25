@@ -203,5 +203,20 @@ public class AdminController {
         m.addAttribute("listMahasiswa", skripsirepository.findAll());
         return "/mahasiswa/listMahasiswa";
     }
+    @RequestMapping("/halDosen")
+    public String halDosen (Model m){
+        m.addAttribute("halamanDosen", skripsirepository.findAll());
+        return "/dosen/halDosen";
+    }
+    @RequestMapping("/dataDosen")
+    public String listDosen (Model m){
+        m.addAttribute("dataDosen", skripsirepository.findAll());
+        return "/dosen/dataDosen";
+    }
+    @RequestMapping("/dataPengajuanDosen")
+    public String dataPengajuanDosen (Model m){
+        m.addAttribute("dataPengajuanDosen", skripsirepository.findAll());
+        return "/dosen/dataPengajuan";
+    }
 
 }
