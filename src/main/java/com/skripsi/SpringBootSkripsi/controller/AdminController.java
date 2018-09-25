@@ -171,7 +171,7 @@ public class AdminController {
 //    }
 
     //THIS IS LECTURER AREA
-    @RequestMapping("/dosen")
+    @RequestMapping("/Dosen")
     public String dataDosen(Model model) {
         model.addAttribute("listDosen", dosenService.dosenList());
 
@@ -205,7 +205,7 @@ public class AdminController {
         return "skripsi";
     }
     
-    @RequestMapping("/pengajuan")
+    @RequestMapping("/Pengajuan")
     public String dataPengajuan (Model m){
         m.addAttribute("dataPengajuan", skripsirepository.findAll());
         return "pengajuan";
