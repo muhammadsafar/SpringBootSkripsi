@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org">
 
     <head>
 
@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" type="image/png" th:src="@{img/person.png}">
 
-        <title>Dashboard Mahasiswa</title>
+        <title>Data Mahasiswa</title>
 
         <!-- Bootstrap core CSS -->
         <link th:href="@{vendor/bootstrap.min.css}" rel="stylesheet">
@@ -34,19 +34,37 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
                         <div class="insetanih">
-                            <img th:src="@{img/MII.png}"/>">
-                        <div class="insetanih">
-
+                            <img th:src="@{img/MII.png}"/>
                         </div>
                     </li>
-                    <li class="active">
-                        <a href="/halMahasiswa">Dashboard</a>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="/dashboard">Dashboard</a>
                     </li>
                     <li>
-                        <a href="/listMahasiswa">Data Mahasiswa</a>
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="mid menu"></i>
+                            <span class="menu-title">Mahasiswa</span>
+                            <i class="menu"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column">
+                                <li>
+                                    <a class="nav-link" href="/addMahasiswa">Add Data</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="/Mahasiswa">Data Mahasiswa</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <a href="/listPengajuan">Pengajuan Skripsi</a>
+                        <a class="nav-link" href="/Dosen">Data Dosen</a>
+                    </li>
+                    <li>
+                        <a  class="nav-link" href="/Pengajuan">Data Pengajuan</a>
+                    </li>
+                    <li>
+                        <a class="nav-link"  href="/dataKeminatan">Keminatan</a>
                     </li>
                 </ul>
             </div>
@@ -65,8 +83,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a href="#" data-toggle="dropdown">
                                 <i style="padding-top: 30px; padding-right: 25px; " class="fa fa-globe fa-2x"></i>
-                                
                             </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                            </ul>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto ml-md-0">
@@ -77,6 +101,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+
                                 <a class="dropdown-item" href="/login">Logout</a>
                             </div>
                         </li>
@@ -84,14 +109,49 @@
                 </ul>
             </nav>
             <!-- /#sidebar-wrapper -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-            <!-- Page Content -->
+                <!-- Page Content -->
+                <form th:object="${mahasiswa}" th:action="@{/addMahasiswa}" method="POST">                      
+                    <label>NIM</label>
+                    <br>
+                    <input type="text" class="form-control col-md-5" placeholder="NIM" required="">
+                    <br>
+                    <br>
+                    <label>Nama</label>
+                    <br>
+                    <input type="text" class="form-control col-md-5" placeholder="Nama" required="">
+                    <br>                                               
+                    <br>                                               
+                    <label>Jurusan</label>
+                    <br>
+                    <input type="text" class="form-control col-md-5 " placeholder="Jurusan" required="">
+                    <br>
+                    <br>
+                    <label>Angkatan</label>
+                    <br>
+                    <input type="text" class="form-control col-md-5" placeholder="Angkatan" required="">
+                    <br>
+                    <br>
+                    <label for="exampleInputEmail1">Email address</label>
+                    <br>
+                    <input type="email" class="form-control col-md-5" placeholder="Email" required="">
+                    <br>
+                    <br>
+                    <label>Password</label>
+                    <br>
+                    <input type="password" class="form-control col-md-5" placeholder="Password" required="" >
+                    <br>
+                    <br>
+                    <label>Upload Foto</label>
+                    <input type="file" name="Pilih Foto" class="btn btn-fill"/>
 
-            <h1>Selamat Datang di Dashboard Mahasiswa</h1>
+                    <button type="submit" class="btn btn-info btn-fill pull-left">Update Profile</button>
 
-            <!-- /#page-content-wrapper -->
-
+                </form>               
+            </main>
         </div>
+        <!-- /#page-content-wrapper -->
         <div class="footer">
             <p class="copyright pull-right">
                 &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Mitra Integrasi Informatika</a>, Metrodata Group

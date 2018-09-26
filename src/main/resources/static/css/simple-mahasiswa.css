@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : Sep 24, 2018, 10:11:37 AM
     Author     : Gusmadika
 */
+nav li a:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
 h4{
     padding-left: 20px;
 }
@@ -635,6 +638,7 @@ body {
 
     .card-user .content {
         min-height: 240px;
+        
     }
 
     .card-user .footer,

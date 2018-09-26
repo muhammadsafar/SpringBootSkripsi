@@ -149,10 +149,10 @@ public class AdminController {
         return "mahasiswa";
     }
     
-    @RequestMapping(value = "/addMahasiswa", method = RequestMethod.GET)
+    @RequestMapping(value = "/addMahasiswa")
     public String formAddOrUpdate(Model model) {
-        model.addAttribute("mahasiswa", new Mahasiswa());
-        return "mahasiswa";
+        model.addAttribute("mahasiswa", mahasiswaService.mahasiswaList());
+        return "addMahasiswa";
     }
 
 //    @RequestMapping(value = "/addMahasiswa", method = RequestMethod.POST)
@@ -242,6 +242,11 @@ public class AdminController {
     public String dataPengajuanDosen (Model m){
         m.addAttribute("dataPengajuanDosen", skripsirepository.findAll());
         return "/dosen/dataPengajuan";
+    }
+    @RequestMapping("/dataKeminatan")
+    public String dataKeminatan (Model m){
+        m.addAttribute("dataKeminatan", skripsirepository.findAll());
+        return "keminatan";
     }
 
 }
