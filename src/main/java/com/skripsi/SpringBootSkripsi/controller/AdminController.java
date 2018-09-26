@@ -152,7 +152,7 @@ public class AdminController {
     @RequestMapping(value = "/addMahasiswa")
     public String formAddOrUpdate(Model model) {
         model.addAttribute("mahasiswa", mahasiswaService.mahasiswaList());
-        return "addMahasiswa";
+        return "formAddMahasiswa";
     }
 
 //    @RequestMapping(value = "/addMahasiswa", method = RequestMethod.POST)
