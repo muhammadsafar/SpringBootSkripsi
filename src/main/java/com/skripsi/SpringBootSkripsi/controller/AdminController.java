@@ -248,5 +248,10 @@ public class AdminController {
         m.addAttribute("dataKeminatan", skripsirepository.findAll());
         return "keminatan";
     }
+    @RequestMapping("/addMinat")
+    public String addKeminatan (Model m){
+        m.addAttribute("addKeminatan", skripsirepository.findAll());
+        return "addMinat";
+    }
 
 }

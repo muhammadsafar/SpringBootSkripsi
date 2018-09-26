@@ -47,12 +47,12 @@
                             <i class="menu"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column">
+                            <ul style="list-style: none;">
                                 <li>
-                                    <a class="nav-link" href="/addMahasiswa">Add Data</a>
+                                    <a  href="/addMahasiswa">Add Data</a>
                                 </li>
-                                 <li>
-                                    <a class="nav-link" href="/Mahasiswa">Data Mahasiswa</a>
+                                <li>
+                                    <a  href="/Mahasiswa">Data Mahasiswa</a>
                                 </li>
                             </ul>
                         </div>
@@ -64,7 +64,21 @@
                         <a  class="nav-link" href="/Pengajuan">Data Pengajuan</a>
                     </li>
                     <li>
-                        <a class="nav-link"  href="/dataKeminatan">Keminatan</a>
+                        <a class="nav-link" data-toggle="collapse" href="#keminatan" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="mid menu"></i>
+                            <span class="menu-title">Keminatan</span>
+                            <i class="menu"></i>
+                        </a>
+                        <div class="collapse" id="keminatan">
+                            <ul style="list-style: none;">
+                                <li>
+                                    <a  href="/addMinat">Add Keminatan</a>
+                                </li>
+                                <li>
+                                    <a  href="/dataKeminatan">Data Keminatan </a>
+                                </li>
+                            </ul>
+                        </div>    
                     </li>
                 </ul>
             </div>
